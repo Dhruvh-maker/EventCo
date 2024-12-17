@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | EventCo</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #4CAF50;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            margin: 0 15px;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            background-color: #3e8e41;
+            border-radius: 5px;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .events h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            display: inline-block;
+            width: 280px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-card .content {
+            padding: 20px;
+        }
+
+        .event-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .event-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-book {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #45a049;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .event-card {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .events h2 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+
+            .events h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div><a href="index.html">EventCo</a></div>
+        <div>
+            <a href="events.html">Events</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Events Listing Section -->
+    <section class="events">
+        <h2>Upcoming Events</h2>
+
+        <!-- Event 1: Corporate Conference -->
+        <div class="event-card">
+            <img src="corcorf.jpg" alt="Event 1">
+            <div class="content">
+                <h3>Corporate Conference</h3>
+                <p>Join us for an amazing conference with top industry leaders.</p>
+                <button class="btn-book" onclick="alert('You have booked the Corporate Conference event!')">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Event 2: Wedding Celebration -->
+        <div class="event-card">
+            <img src="fairytale wed.avif" alt="Event 2">
+            <div class="content">
+                <h3>Wedding Celebration</h3>
+                <p>Celebrate your special day with an elegant wedding package.</p>
+                <button class="btn-book" onclick="alert('You have booked the Wedding Celebration event!')">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Event 3: Birthday Bash -->
+        <div class="event-card">
+            <img src="birthday.avif" alt="Event 3">
+            <div class="content">
+                <h3>Birthday Bash</h3>
+                <p>Plan the best birthday party ever with our customized themes.</p>
+                <button class="btn-book" onclick="alert('You have booked the Birthday Bash event!')">Book Now</button>
+            </div>
+        </div>
+
+        <!-- Event 4: Music Festival -->
+        <div class="event-card">
+            <img src="musicfest.jpg" alt="Event 4">
+            <div class="content">
+                <h3>Music Festival</h3>
+                <p>Experience live music, food, and fun at the biggest festival of the year!</p>
+                <button class="btn-book" onclick="alert('You have booked the Music Festival event!')">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 EventCo. All rights reserved. <br> <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script>
+        // JavaScript for booking alerts
+        const bookButtons = document.querySelectorAll('.btn-book');
+
+        bookButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                alert('Your event has been booked successfully!');
+            });
+        });
+    </script>
+</body>
+
+</html>

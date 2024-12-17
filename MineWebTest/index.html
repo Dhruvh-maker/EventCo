@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventCo | Event Management</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #4CAF50;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            margin: 0 15px;
+            padding: 10px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            background-color: #3e8e41;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&w=800') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            font-weight: bold;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary {
+            background-color: #ff5722;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff7043;
+        }
+
+        /* Events Section */
+        .events {
+            padding: 50px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .events h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .event-card {
+            display: inline-block;
+            width: 280px;
+            margin: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .event-card .content {
+            padding: 20px;
+        }
+
+        .event-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .event-card p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-book {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-book:hover {
+            background-color: #45a049;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .testimonial-card {
+            display: inline-block;
+            width: 280px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-card img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-card cite {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #ff5722;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .event-card,
+            .testimonial-card {
+                width: 90%;
+                margin: 10px auto;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .hero p {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div><a href="index.html">EventCo</a></div>
+        <div>
+            <a href="events.html">Events</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html">Contact</a>
+            <a href="booking.html">BookShow</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Welcome to EventCo</h1>
+            <p>We Make Your Events Unforgettable</p>
+            <a href="booking.html">
+            <button class="btn-primary">Book an Event</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+        <h2>Our Upcoming Events</h2>
+
+        <div class="event-card">
+            <img src="cor gala.avif" alt="Corporate Conference">
+            <div class="content">
+                <h3>Corporate Conference</h3>
+                <p>Join us for an informative conference with industry leaders.</p>
+                <button class="btn-book" onclick="alert('Booking Event 1')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="fairytale wed.avif" alt="Wedding Celebration">
+            <div class="content">
+                <h3>Wedding Celebration</h3>
+                <p>Let us help you create the perfect wedding experience.</p>
+                <button class="btn-book" onclick="alert('Booking Event 2')">Book Now</button>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <img src="birthday.avif" alt="Birthday Bash">
+            <div class="content">
+                <h3>Birthday Bash</h3>
+                <p>Celebrate your special day in style with our custom packages.</p>
+                <button class="btn-book" onclick="alert('Booking Event 3')">Book Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+
+        <div class="testimonial-card">
+            <img src="https://plus.unsplash.com/premium_photo-1689530775582-83b8abdb5020?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Client 1">
+            <blockquote>"EventCo made our conference a huge success. The team was professional, and everything ran smoothly."</blockquote>
+            <cite>John Doe - CEO, Tech Solutions</cite>
+        </div>
+
+        <div class="testimonial-card">
+            <img src="https://images.unsplash.com/photo-1439778615639-28529f7628bc?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cmFuZG9tJTIwd29tZW58ZW58MHx8MHx8fDA%3D" alt="Client 2">
+            <blockquote>"Our wedding was exactly what we dreamed of! Thank you, EventCo, for making it magical."</blockquote>
+            <cite>Jane Smith - Bride</cite>
+        </div>
+
+        <div class="testimonial-card">
+            <img src="girl1.avif" alt="Client 3">
+            <blockquote>"The best birthday party ever, thanks to EventCo! They took care of everything, and it was flawless."</blockquote>
+            <cite>Emma Brown - Birthday Girl</cite>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 EventCo. All rights reserved. <br> <a href="contact.html">Contact Us</a></p>
+    </footer>
+</body>
+
+</html>
